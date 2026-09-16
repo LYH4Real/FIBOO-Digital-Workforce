@@ -86,8 +86,30 @@ class NativeMarketTests(unittest.TestCase):
              mock.patch.object(market.subprocess, 'Popen', return_value=child) as start, \
              mock.patch.object(market.NativeServer, 'request', return_value=[]):
             with market.NativeServer(Path('cli'), Path('node'), Path('profile')):
-                self.assertIs(start.call_args.kwargs['env'], inherited)
+                actual = start.call_args.kwargs['env']
+                self.assertEqual(actual['https_proxy'], inherited['https_proxy'])
+                if os.name == 'nt':
+                    self.assertEqual(actual['GIT_CONFIG_KEY_0'], 'core.longpaths')
+                    self.assertEqual(actual['GIT_CONFIG_VALUE_0'], 'true')
                 environment.assert_called_once()
+
+    def test_native_long_paths_append_without_mutating_existing_git_overrides(self):
+        original = {'GIT_CONFIG_COUNT': '2', 'GIT_CONFIG_KEY_0': 'http.version',
+                    'GIT_CONFIG_VALUE_0': 'HTTP/1.1', 'GIT_CONFIG_KEY_1': 'url.file:///mirror.insteadOf',
+                    'GIT_CONFIG_VALUE_1': 'https://repo.invalid/company.git'}
+        result = market.native_git_long_paths(original)
+        self.assertEqual(original['GIT_CONFIG_COUNT'], '2')
+        self.assertNotIn('GIT_CONFIG_KEY_2', original)
+        self.assertEqual(result['GIT_CONFIG_COUNT'], '3')
+        self.assertEqual(result['GIT_CONFIG_KEY_2'], 'core.longpaths')
+        self.assertEqual(result['GIT_CONFIG_VALUE_2'], 'true')
+        self.assertEqual(result['GIT_CONFIG_VALUE_0'], 'HTTP/1.1')
+        self.assertEqual(result['GIT_CONFIG_VALUE_1'], original['GIT_CONFIG_VALUE_1'])
+
+    def test_native_long_paths_reject_invalid_override_count(self):
+        for value in ('invalid', '-1', '1000000'):
+            with self.subTest(value=value), self.assertRaises(market.MarketError):
+                market.native_git_long_paths({'GIT_CONFIG_COUNT': value})
 
     def test_remote_check_clone_uses_shared_git_environment(self):
         inherited = {'https_proxy': 'http://proxy.invalid:27185'}
@@ -154,6 +176,16 @@ class NativeMarketTests(unittest.TestCase):
         process.terminate.assert_called_once_with()
         process.wait.assert_called_once_with(timeout=8)
         process.kill.assert_not_called()
+
+    @unittest.skipUnless(os.name == 'nt', 'Windows releases child cwd handles asynchronously')
+    def test_cleanup_waits_for_owned_child_directory_handles(self):
+        server = market.NativeServer(Path('cli'), Path('node'), Path('profile'))
+        server.temp = mock.Mock()
+        server.temp.cleanup.side_effect = [PermissionError('child is still releasing cwd'), None]
+        with mock.patch.object(market.time, 'sleep') as sleep:
+            server.__exit__(None, None, None)
+        self.assertEqual(server.temp.cleanup.call_count, 2)
+        sleep.assert_called_once_with(0.1)
 
     @unittest.skipUnless(os.name == 'nt', 'Windows process containment')
     def test_windows_job_closes_own_descendants(self):

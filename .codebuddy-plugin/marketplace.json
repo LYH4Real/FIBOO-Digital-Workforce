@@ -1,14 +1,46 @@
 {
   "name": "FIBOO-数字员工市场",
-  "owner": { "name": "FIBOO" },
+  "owner": {
+    "name": "FIBOO"
+  },
   "description": "FIBOO 公司内部数字员工能力市场：浏览器、钉钉、产品资料、小红书采集、内容策划与图片生成。",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "plugins": [
-    { "name": "kimi-webbridge", "source": "./plugins/kimi-webbridge", "description": "Kimi 浏览器助手：连接 Chrome / Edge，读取与操作员工自己的浏览器。", "category": "productivity" },
-    { "name": "dingtalk-cli", "source": "./plugins/dingtalk-cli", "description": "钉钉办公：内置 Windows DWS CLI 与钉钉产品技能，员工独立授权。", "category": "productivity" },
-    { "name": "wave-image", "source": "./plugins/wave-image", "description": "Wave 图片生成：文生图、参考图编辑与批量生成。", "category": "design" },
-    { "name": "fiboo-product-materials", "source": "./plugins/fiboo-product-materials", "description": "fiboo 产品资料：实时查询钉钉产品库、下载产品图与 PDF。", "category": "productivity" },
-    { "name": "xiaohongshu-note-fetch", "source": "./plugins/xiaohongshu-note-fetch", "description": "小红书笔记采集：使用员工浏览器登录态提取参考笔记。", "category": "productivity" },
-    { "name": "xiaohongshu-content-planner", "source": "./plugins/xiaohongshu-content-planner", "description": "小红书内容策划：组合产品资料、参考笔记、文案与图片生成；自动安装配套插件。", "category": "productivity" }
+    {
+      "name": "kimi-webbridge",
+      "source": "./plugins/kimi-webbridge",
+      "description": "Kimi 浏览器助手：连接 Chrome / Edge，读取与操作员工自己的浏览器。",
+      "category": "productivity"
+    },
+    {
+      "name": "dingtalk-cli",
+      "source": "./plugins/dingtalk-cli",
+      "description": "钉钉办公：内置 Windows DWS CLI 与钉钉产品技能，员工独立授权。",
+      "category": "productivity"
+    },
+    {
+      "name": "wave-image",
+      "source": "./plugins/wave-image",
+      "description": "Wave 图片生成：文生图、参考图编辑与批量生成。",
+      "category": "design"
+    },
+    {
+      "name": "fiboo-product-materials",
+      "source": "./plugins/fiboo-product-materials",
+      "description": "fiboo 产品资料：实时查询钉钉产品库、下载产品图与 PDF。",
+      "category": "productivity"
+    },
+    {
+      "name": "xiaohongshu-note-fetch",
+      "source": "./plugins/xiaohongshu-note-fetch",
+      "description": "小红书笔记采集：使用员工浏览器登录态提取参考笔记。",
+      "category": "productivity"
+    },
+    {
+      "name": "xiaohongshu-content-planner",
+      "source": "./plugins/xiaohongshu-content-planner",
+      "description": "小红书内容策划：组合产品资料、参考笔记、文案与图片生成；自动安装配套插件。",
+      "category": "productivity"
+    }
   ]
 }

@@ -2,8 +2,11 @@ $ErrorActionPreference = 'Stop'
 $exe = Join-Path $PSScriptRoot '../runtime/waveeee-image-mcp.exe'
 if (-not (Test-Path -LiteralPath $exe)) { throw 'Missing bundled Wave MCP executable.' }
 $previousKey = $env:WAVEEEE_API_KEY
+$previousOutputEncoding = $OutputEncoding
 try {
     $env:WAVEEEE_API_KEY = ''
+    # MCP is UTF-8 JSON lines; PowerShell must not prepend a BOM to stdin.
+    $OutputEncoding = New-Object System.Text.UTF8Encoding($false)
     $requests = @(
         '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}'
         '{"jsonrpc":"2.0","method":"notifications/initialized","params":{}}'
@@ -23,4 +26,5 @@ try {
     Write-Output '[PASS] Wave MCP: initialize, 6 tools, server_info, no API credential or network generation.'
 } finally {
     $env:WAVEEEE_API_KEY = $previousKey
+    $OutputEncoding = $previousOutputEncoding
 }

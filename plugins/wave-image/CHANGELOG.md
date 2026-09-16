@@ -1,5 +1,9 @@
 # 更新记录
 
+## 0.4.3 — 2026-09-16
+
+- 修复 Windows PowerShell 带 BOM 编码导致离线自检误报版本；MCP 运行时仍为 0.4.2。
+
 ## 0.4.2
 
 - 将现有 Waveeee Image MCP 0.4.2 打包为 FIBOO 公司市场插件。

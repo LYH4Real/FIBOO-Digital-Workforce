@@ -55,7 +55,9 @@ Windows 入口自动寻找 WorkBuddy 随包 Python、Node 和 CLI，不要求员
 .\scripts\workbuddy-market.ps1 --config-dir .\.verification\my-profile install --plugin xiaohongshu-content-planner
 ```
 
-可另外传入 `--cli <cli/bin/codebuddy>` 与 `--node <node.exe>`。默认配置目录是当前用户的 `~/.workbuddy`。`status` 和 `check-updates` 只读取版本信息；Git 检查使用临时浅克隆，不修改原生缓存和配置。输出不包含仓库凭据、插件配置值或认证令牌。
+可另外传入 `--cli <cli/bin/codebuddy>` 与 `--node <node.exe>`。默认配置目录是当前用户的 `~/.workbuddy`。`status` 和 `check-updates` 只读取版本信息；Git 检查使用临时 partial clone 和 sparse checkout，仅取得市场与插件版本清单，不修改原生缓存和配置。输出不包含仓库凭据、插件配置值或认证令牌。
+
+2026-09-16，公司真实 HTTPS 仓库的稀疏检测耗时 8.042 秒：工作树仅 7 个 JSON、4,045 字节，Git 对象 44,799 字节；没有下载 EXE/DLL，六项版本比较正确，隔离注册表哈希未改变。证据在本机 `.verification/sparse-catalog-20260916T100333Z/result.json`。
 
 `install` 接受安全的小写 kebab-case 名称，由原生市场验证插件是否存在；上新插件不需要更新管理脚本的固定名单。
 

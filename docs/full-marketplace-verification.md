@@ -42,3 +42,13 @@
 测试在获授权的系统执行环境运行，以允许 Task Scheduler/CIM 操作；没有注册真实员工的长期任务。可选隔离参数不改变常规安装的默认目录和任务名。
 
 证据目录：`.verification/top-level-install-20260916T093040Z-b0aaba05/`，包含 `verification-result.json`、`monitor-state/update-status.json` 和可打开的 `monitor-state/update-report.html`。测试命令为设置 `FIBOO_TEST_MARKET_INSTALL=1` 后执行 `python -B -m unittest discover -s tests -p "test_install_market.py" -v`；默认测试不会执行真实注册与计划任务验收。
+
+## 公开 HTTPS 仓库验收
+
+发布后，从 `https://github.com/LYH4Real/FIBOO-Digital-Workforce.git` 注册全新隔离市场，仅安装内容策划插件，原生装齐六个插件。远端基线提交为 `358cc040e6e4bb932f7d3e48cce84086e0cf9609`；本轮 Wave 插件包版本为 0.4.2。市场缓存的 Git origin、提交和文件树均与该公开仓库匹配。
+
+真实 HTTPS 验收结果为六插件、19 技能、reload errors=0、autoUpdate=true。只读更新检查得到六项相同版本，插件注册表字节不变。远端缓存中的六个插件摘要与 release-lock 一致；Windows 超长验收目录采用扩展路径做文件审计，完整校验通过。当前员工真实配置的四个相关文件在验收前后均未改变。
+
+验收定位并修复了 Windows Git 在原生暂存目录中遇到长路径的问题：管理器仅为本次原生服务的 Git 子进程设置 `core.longpaths=true`，保留已有参数，不改系统或全局 Git 配置。Windows Job 关闭后等待文件句柄释放再清理临时目录，独立退出清理验收通过。
+
+证据位于本机 `.verification/https-native/completion-v1.json`。v1.0.1 随包包含这些安装器修复，以及 Wave 自检的无 BOM UTF-8 修复；Wave 包版本递增为 0.4.3，图片服务运行时仍为 0.4.2。

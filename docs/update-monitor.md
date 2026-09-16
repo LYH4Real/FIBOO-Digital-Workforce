@@ -32,7 +32,7 @@ Python 优先使用 WorkBuddy 的默认环境，其次使用 WorkBuddy 提供的
 
 ## 避免重复下载
 
-远程 Git 来源先执行有 30 秒超时的 `git ls-remote HEAD`。HEAD 与上次成功记录相同时，复用已知的远端版本，并重新读取本机已安装版本进行比较；不重新克隆大包。发现新安装而缓存未知的插件、HEAD 变化或使用 `-NoHeadCache` 时，调用现有 `workbuddy_market.py` 的 `check_updates` 读取新目录。
+远程 Git 来源先执行有 30 秒超时的 `git ls-remote HEAD`。HEAD 与上次成功记录相同时，复用已知的远端版本，并重新读取本机已安装版本进行比较。发现新安装而缓存未知的插件、HEAD 变化或使用 `-NoHeadCache` 时，通过 partial clone 和 sparse checkout 仅读取市场与插件 JSON 清单。公司 GitHub 实测没有下载 EXE/DLL，工作树仅 4,045 字节；不会为了比较版本反复下载全部程序。
 
 本地市场没有远端 HEAD，每次直接读取。克隆与版本检查沿用管理器的 120 秒边界；任务整体限时 5 分钟。Git 禁止交互式凭据提示，SSH 默认采用 BatchMode。检查失败时只更新监测器自己的状态，不修改市场来源或已安装插件。
 

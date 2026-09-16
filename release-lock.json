@@ -1,6 +1,6 @@
 {
   "marketplace": "FIBOO-数字员工市场",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "plugins": {
     "kimi-webbridge": {
       "version": "2.0.5",
@@ -11,8 +11,8 @@
       "sha256": "6db1e8119fe126eaf3c68230e1cf3256b45c00619cb4e63bdb89cc5499df92af"
     },
     "wave-image": {
-      "version": "0.4.2",
-      "sha256": "357071c11d2b6ce7f4e3cbcc1dbf8cbc0843f444796e18b30fe879aa438fe7f6"
+      "version": "0.4.3",
+      "sha256": "24e1444bed92bfe6e944893f10ab9086fef8e84f6cf9e7a9a0162009f7a78a0e"
     },
     "fiboo-product-materials": {
       "version": "0.1.0",

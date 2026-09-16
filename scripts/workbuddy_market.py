@@ -257,6 +257,8 @@ class NativeServer:
                     "CODEBUDDY_GATEWAY_AUTH": "password", "CODEBUDDY_GATEWAY_PASSWORD": self.password})
         env.pop("FORCE_AUTOUPDATE_PLUGINS", None)
         env = git_environment(self.config_dir, env, cwd=self.temp.name)
+        if os.name == "nt":
+            env = native_git_long_paths(env)
         try:
             if os.name == "nt":
                 self.job = WindowsChildJob()
@@ -293,7 +295,16 @@ class NativeServer:
                 self.process.kill()
                 self.process.wait(timeout=5)
         if self.temp is not None:
-            self.temp.cleanup()
+            # Closing a Windows Job initiates termination; descendant processes
+            # can briefly retain their working-directory handles after it returns.
+            for attempt in range(50):
+                try:
+                    self.temp.cleanup()
+                    break
+                except PermissionError:
+                    if os.name != "nt" or attempt == 49:
+                        raise
+                    time.sleep(0.1)
 
 
 def registered_source(config_dir: Path):
@@ -377,22 +388,65 @@ def git_environment(config_dir: Path, environment=None, *, cwd=None):
     return env
 
 
+def native_git_long_paths(environment):
+    """Allow native Windows staging paths without changing any Git config file."""
+    env = dict(environment)
+    try:
+        index = int(env.get("GIT_CONFIG_COUNT", "0"))
+    except ValueError as exc:
+        raise MarketError("现有 GIT_CONFIG_COUNT 无效；无法设置原生服务的临时 Git 参数。") from exc
+    if not 0 <= index <= 4096:
+        raise MarketError("现有 GIT_CONFIG_COUNT 超出允许范围。")
+    env.update({"GIT_CONFIG_COUNT": str(index + 1),
+                f"GIT_CONFIG_KEY_{index}": "core.longpaths",
+                f"GIT_CONFIG_VALUE_{index}": "true"})
+    return env
+
+
+def _clone_catalog_metadata(config_dir: Path, source: str, destination: Path):
+    """Read remote versions without materializing plugin runtime payloads.
+
+    Non-cone patterns include every supported plugin metadata directory at any
+    depth, so catalog-defined local paths continue to work without hardcoded
+    plugin names. GitHub's blob:none support also avoids downloading executable
+    blobs into Git's object store, not just excluding them from the worktree.
+    """
+    git = discover_git(config_dir)
+    environment = git_environment(config_dir)
+    deadline = time.monotonic() + 120
+    patterns = "".join(f"/{directory}/marketplace.json\n**/{directory}/plugin.json\n"
+                       for directory in METADATA_DIRS).encode("utf-8")
+    commands = [
+        ([git, "clone", "--filter=blob:none", "--no-checkout", "--depth", "1", "--single-branch",
+          "--no-tags", "--", source, str(destination)], None, None),
+        ([git, "sparse-checkout", "set", "--no-cone", "--stdin"], destination, patterns),
+        ([git, "checkout", "--force"], destination, None),
+    ]
+    for command, directory, input_bytes in commands:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise MarketError("只读拉取市场目录超时；已安装插件没有变化。")
+        options = {"cwd": directory, "stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL,
+                   "env": environment, "timeout": remaining, "creationflags": CREATE_NO_WINDOW}
+        if input_bytes is None:
+            options["stdin"] = subprocess.DEVNULL
+        else:
+            options["input"] = input_bytes
+        try:
+            result = subprocess.run(command, **options)
+        except subprocess.TimeoutExpired as exc:
+            raise MarketError("只读拉取市场目录超时；已安装插件没有变化。") from exc
+        if result.returncode:
+            raise MarketError("只读拉取市场目录失败；请检查 Git、网络或仓库权限。已安装插件没有变化。")
+
+
 def check_updates(config_dir: Path, source: str | None = None):
     source = validate_source(source or registered_source(config_dir))
     with tempfile.TemporaryDirectory(prefix="fiboo-catalog-check-") as tmp:
         root = Path(source)
         if not root.is_dir():
             root = Path(tmp) / "market"
-            env = git_environment(config_dir)
-            try:
-                result = subprocess.run([discover_git(config_dir), "clone", "--depth", "1", "--single-branch",
-                                         "--no-tags", "--", source, str(root)], stdin=subprocess.DEVNULL,
-                                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, env=env,
-                                        timeout=120, creationflags=CREATE_NO_WINDOW)
-            except subprocess.TimeoutExpired as exc:
-                raise MarketError("只读拉取市场超时；已安装插件没有变化。") from exc
-            if result.returncode:
-                raise MarketError("只读拉取市场失败；请先配置私有 Git 的 SSH 或凭据管理器。已安装插件没有变化。")
+            _clone_catalog_metadata(config_dir, source, root)
         versions = catalog_versions(root)
     result = installed_status(config_dir)
     result["operation"] = "check-updates"
