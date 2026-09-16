@@ -16,5 +16,6 @@ jobs:
       - run: python -m unittest discover -s plugins/xiaohongshu-content-planner/skills/xiaohongshu-content-planner/tests -v
       - shell: powershell
         run: |
+          [Console]::InputEncoding = New-Object System.Text.UTF8Encoding($false)
           & ./plugins/wave-image/scripts/check.ps1
           & ./plugins/xiaohongshu-note-fetch/scripts/check.ps1
