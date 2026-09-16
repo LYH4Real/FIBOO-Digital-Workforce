@@ -1,0 +1,296 @@
+[
+  {
+    "name": "altgraph",
+    "version": "0.17.5",
+    "license_files": [
+      "licenses/altgraph/1/LICENSE"
+    ]
+  },
+  {
+    "name": "annotated-types",
+    "version": "0.8.0",
+    "license_files": [
+      "licenses/annotated-types/1/LICENSE"
+    ]
+  },
+  {
+    "name": "anyio",
+    "version": "4.15.1",
+    "license_files": [
+      "licenses/anyio/1/LICENSE"
+    ]
+  },
+  {
+    "name": "attrs",
+    "version": "26.1.0",
+    "license_files": [
+      "licenses/attrs/1/LICENSE"
+    ]
+  },
+  {
+    "name": "certifi",
+    "version": "2026.7.22",
+    "license_files": [
+      "licenses/certifi/1/LICENSE"
+    ]
+  },
+  {
+    "name": "cffi",
+    "version": "2.1.1",
+    "license_files": [
+      "licenses/cffi/1/LICENSE"
+    ]
+  },
+  {
+    "name": "click",
+    "version": "8.5.0",
+    "license_files": [
+      "licenses/click/1/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "cryptography",
+    "version": "50.0.1",
+    "license_files": [
+      "licenses/cryptography/1/LICENSE",
+      "licenses/cryptography/2/LICENSE.APACHE",
+      "licenses/cryptography/3/LICENSE.BSD"
+    ]
+  },
+  {
+    "name": "h11",
+    "version": "0.16.0",
+    "license_files": [
+      "licenses/h11/1/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "httpcore",
+    "version": "1.0.9",
+    "license_files": [
+      "licenses/httpcore/1/LICENSE.md"
+    ]
+  },
+  {
+    "name": "httpx",
+    "version": "0.28.1",
+    "license_files": [
+      "licenses/httpx/1/LICENSE.md"
+    ]
+  },
+  {
+    "name": "httpx-sse",
+    "version": "0.4.3",
+    "license_files": [
+      "licenses/httpx-sse/1/LICENSE"
+    ]
+  },
+  {
+    "name": "idna",
+    "version": "3.19",
+    "license_files": [
+      "licenses/idna/1/LICENSE.md"
+    ]
+  },
+  {
+    "name": "jsonschema",
+    "version": "4.26.0",
+    "license_files": [
+      "licenses/jsonschema/1/COPYING"
+    ]
+  },
+  {
+    "name": "jsonschema-specifications",
+    "version": "2025.9.1",
+    "license_files": [
+      "licenses/jsonschema-specifications/1/COPYING"
+    ]
+  },
+  {
+    "name": "mcp",
+    "version": "1.30.0",
+    "license_files": [
+      "licenses/mcp/1/LICENSE"
+    ]
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "license_files": [
+      "licenses/packaging/1/LICENSE",
+      "licenses/packaging/2/LICENSE.APACHE",
+      "licenses/packaging/3/LICENSE.BSD"
+    ]
+  },
+  {
+    "name": "pefile",
+    "version": "2024.8.26",
+    "license_files": [
+      "licenses/pefile/1/LICENSE"
+    ]
+  },
+  {
+    "name": "pycparser",
+    "version": "3.0",
+    "license_files": [
+      "licenses/pycparser/1/LICENSE"
+    ]
+  },
+  {
+    "name": "pydantic",
+    "version": "2.13.5",
+    "license_files": [
+      "licenses/pydantic/1/LICENSE"
+    ]
+  },
+  {
+    "name": "pydantic-settings",
+    "version": "2.15.0",
+    "license_files": [
+      "licenses/pydantic-settings/1/LICENSE"
+    ]
+  },
+  {
+    "name": "pydantic_core",
+    "version": "2.46.5",
+    "license_files": [
+      "licenses/pydantic_core/1/LICENSE"
+    ]
+  },
+  {
+    "name": "pyinstaller",
+    "version": "6.22.3",
+    "license_files": [
+      "licenses/pyinstaller/1/COPYING.txt"
+    ]
+  },
+  {
+    "name": "pyinstaller-hooks-contrib",
+    "version": "2026.7",
+    "license_files": [
+      "licenses/pyinstaller-hooks-contrib/1/LICENSE"
+    ]
+  },
+  {
+    "name": "PyJWT",
+    "version": "2.14.0",
+    "license_files": [
+      "licenses/PyJWT/1/AUTHORS.rst",
+      "licenses/PyJWT/2/LICENSE"
+    ]
+  },
+  {
+    "name": "python-dotenv",
+    "version": "1.2.3",
+    "license_files": [
+      "licenses/python-dotenv/1/LICENSE"
+    ]
+  },
+  {
+    "name": "python-multipart",
+    "version": "0.0.32",
+    "license_files": [
+      "licenses/python-multipart/1/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "pywin32",
+    "version": "312",
+    "license_files": [
+      "licenses/pywin32/1/license.txt",
+      "licenses/pywin32/2/License.txt",
+      "licenses/pywin32/3/LICENSE.txt",
+      "licenses/pywin32/4/license.txt",
+      "licenses/pywin32/5/License.txt",
+      "licenses/pywin32/6/LICENSE",
+      "licenses/pywin32/7/License.txt",
+      "licenses/pywin32/8/License.txt",
+      "licenses/pywin32/9/LICENSE.txt",
+      "licenses/pywin32/10/License.txt",
+      "licenses/pywin32/11/License.txt",
+      "licenses/pywin32/12/License.txt",
+      "licenses/pywin32/13/License.txt",
+      "licenses/pywin32/14/NOTICE.md"
+    ]
+  },
+  {
+    "name": "pywin32-ctypes",
+    "version": "0.2.3",
+    "license_files": [
+      "licenses/pywin32-ctypes/1/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "referencing",
+    "version": "0.37.0",
+    "license_files": [
+      "licenses/referencing/1/COPYING"
+    ]
+  },
+  {
+    "name": "rpds-py",
+    "version": "2026.6.3",
+    "license_files": [
+      "licenses/rpds-py/1/LICENSE"
+    ]
+  },
+  {
+    "name": "setuptools",
+    "version": "84.0.0",
+    "license_files": [
+      "licenses/setuptools/1/LICENSE",
+      "licenses/setuptools/2/LICENSE",
+      "licenses/setuptools/3/LICENSE",
+      "licenses/setuptools/4/LICENSE",
+      "licenses/setuptools/5/LICENSE",
+      "licenses/setuptools/6/LICENSE",
+      "licenses/setuptools/7/LICENSE",
+      "licenses/setuptools/8/LICENSE",
+      "licenses/setuptools/9/LICENSE",
+      "licenses/setuptools/10/LICENSE.APACHE",
+      "licenses/setuptools/11/LICENSE.BSD",
+      "licenses/setuptools/12/LICENSE",
+      "licenses/setuptools/13/LICENSE",
+      "licenses/setuptools/14/LICENSE.txt",
+      "licenses/setuptools/15/LICENSE",
+      "licenses/setuptools/16/NOTICE",
+      "licenses/setuptools/17/NOTICE"
+    ]
+  },
+  {
+    "name": "sse-starlette",
+    "version": "3.4.11",
+    "license_files": [
+      "licenses/sse-starlette/1/AUTHORS",
+      "licenses/sse-starlette/2/LICENSE"
+    ]
+  },
+  {
+    "name": "starlette",
+    "version": "1.6.0",
+    "license_files": [
+      "licenses/starlette/1/LICENSE.md"
+    ]
+  },
+  {
+    "name": "typing-inspection",
+    "version": "0.4.4",
+    "license_files": [
+      "licenses/typing-inspection/1/LICENSE"
+    ]
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "license_files": [
+      "licenses/typing_extensions/1/LICENSE"
+    ]
+  },
+  {
+    "name": "uvicorn",
+    "version": "0.53.0",
+    "license_files": [
+      "licenses/uvicorn/1/LICENSE.md"
+    ]
+  }
+]

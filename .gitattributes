@@ -1,0 +1,6 @@
+# Keep release hashes identical across Git checkout, ZIP and Windows workstations.
+* -text
+*.exe binary
+*.dll binary
+*.zip binary
+*.pyd binary

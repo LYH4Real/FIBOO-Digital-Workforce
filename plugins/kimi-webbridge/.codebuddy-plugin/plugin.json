@@ -1,0 +1,7 @@
+{
+  "name": "kimi-webbridge",
+  "version": "2.0.5",
+  "description": "Kimi 浏览器助手：浏览器扩展安装入口、固定版本桥接程序安装器、操作技能和连接检查。",
+  "author": { "name": "FIBOO" },
+  "skills": "./skills/"
+}

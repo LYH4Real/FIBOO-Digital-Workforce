@@ -1,0 +1,319 @@
+{
+  "tools": [
+    {
+      "name": "generate_image",
+      "description": "使用 Waveeee 生成图片并保存到本地；按实际返回的 url/b64_json 自动处理。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string",
+            "default": "gpt-image-2.5",
+            "description": "省略时采用 WAVEEEE_MODEL 运行时配置；显式值保持不变。"
+          },
+          "size": {
+            "type": "string",
+            "pattern": "^[0-9]+x[0-9]+$",
+            "default": "1024x1024",
+            "description": "WIDTHxHEIGHT；宽高均为 16 的倍数，单边 <3840px，总像素 655360–8294400，长宽比不超过 3:1"
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4,
+            "default": 1
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "b64_json",
+              "url"
+            ],
+            "default": "auto",
+            "description": "auto 省略 API 请求中的此字段；url/b64_json 显式发送。保存时始终按实际返回的 url 或 b64_json 自动处理。"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "output_subdir": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ]
+      }
+    },
+    {
+      "name": "edit_image",
+      "description": "使用 Waveeee 参考图编辑图片并保存到本地；按实际返回的 url/b64_json 自动处理。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string",
+            "default": "gpt-image-2.5",
+            "description": "省略时采用 WAVEEEE_MODEL 运行时配置；显式值保持不变。"
+          },
+          "size": {
+            "type": "string",
+            "pattern": "^[0-9]+x[0-9]+$",
+            "default": "1024x1024",
+            "description": "WIDTHxHEIGHT；宽高均为 16 的倍数，单边 <3840px，总像素 655360–8294400，长宽比不超过 3:1"
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4,
+            "default": 1
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "b64_json",
+              "url"
+            ],
+            "default": "auto",
+            "description": "auto 省略 API 请求中的此字段；url/b64_json 显式发送。保存时始终按实际返回的 url 或 b64_json 自动处理。"
+          },
+          "image_paths": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            },
+            "description": "本地参考图片路径；以 multipart 的 image 字段逐张上传。"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "output_subdir": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt",
+          "image_paths"
+        ]
+      }
+    },
+    {
+      "name": "generate_batch_images",
+      "description": "使用 Waveeee 生成图片并保存到本地；按实际返回的 url/b64_json 自动处理。并发执行各任务并写入 manifest.jsonl。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "properties": {
+                "prompt": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": "string",
+                  "default": "gpt-image-2.5",
+                  "description": "省略时采用 WAVEEEE_MODEL 运行时配置；显式值保持不变。"
+                },
+                "size": {
+                  "type": "string",
+                  "pattern": "^[0-9]+x[0-9]+$",
+                  "default": "1024x1024",
+                  "description": "WIDTHxHEIGHT；宽高均为 16 的倍数，单边 <3840px，总像素 655360–8294400，长宽比不超过 3:1"
+                },
+                "n": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4,
+                  "default": 1
+                },
+                "response_format": {
+                  "type": "string",
+                  "enum": [
+                    "auto",
+                    "b64_json",
+                    "url"
+                  ],
+                  "default": "auto",
+                  "description": "auto 省略 API 请求中的此字段；url/b64_json 显式发送。保存时始终按实际返回的 url 或 b64_json 自动处理。"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "prompt"
+              ]
+            }
+          },
+          "concurrency": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 16,
+            "default": 4
+          },
+          "retries": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5,
+            "default": 2
+          },
+          "output_subdir": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tasks"
+        ]
+      }
+    },
+    {
+      "name": "edit_batch_images",
+      "description": "使用 Waveeee 参考图编辑图片并保存到本地；按实际返回的 url/b64_json 自动处理。并发执行各任务并写入 manifest.jsonl。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "properties": {
+                "prompt": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": "string",
+                  "default": "gpt-image-2.5",
+                  "description": "省略时采用 WAVEEEE_MODEL 运行时配置；显式值保持不变。"
+                },
+                "size": {
+                  "type": "string",
+                  "pattern": "^[0-9]+x[0-9]+$",
+                  "default": "1024x1024",
+                  "description": "WIDTHxHEIGHT；宽高均为 16 的倍数，单边 <3840px，总像素 655360–8294400，长宽比不超过 3:1"
+                },
+                "n": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4,
+                  "default": 1
+                },
+                "response_format": {
+                  "type": "string",
+                  "enum": [
+                    "auto",
+                    "b64_json",
+                    "url"
+                  ],
+                  "default": "auto",
+                  "description": "auto 省略 API 请求中的此字段；url/b64_json 显式发送。保存时始终按实际返回的 url 或 b64_json 自动处理。"
+                },
+                "image_paths": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 10,
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "本地参考图片路径；以 multipart 的 image 字段逐张上传。"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "prompt",
+                "image_paths"
+              ]
+            }
+          },
+          "concurrency": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 16,
+            "default": 4
+          },
+          "retries": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5,
+            "default": 2
+          },
+          "output_subdir": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tasks"
+        ]
+      }
+    },
+    {
+      "name": "save_image_response",
+      "description": "保存已有 API 响应中的图片，无需 API Key、不重新生图。互斥提供 response 对象或本地 JSON 文件绝对路径；自动下载 data[].url 或解码 data[].b64_json，返回本地图片路径。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "object",
+            "description": "已有 API JSON 响应，含非空 data 数组。"
+          },
+          "response_json_path": {
+            "type": "string",
+            "description": "已有 UTF-8 JSON 响应文件的本地绝对路径。"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "output_subdir": {
+            "type": "string"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "response"
+            ],
+            "not": {
+              "required": [
+                "response_json_path"
+              ]
+            }
+          },
+          {
+            "required": [
+              "response_json_path"
+            ],
+            "not": {
+              "required": [
+                "response"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "server_info",
+      "description": "查看服务版本、模型、输出目录和运行时能力。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

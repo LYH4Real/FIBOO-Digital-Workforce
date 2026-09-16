@@ -1,0 +1,7 @@
+{
+  "version": "2.0.5",
+  "platform": "windows-amd64",
+  "url": "https://cdn.kimi.com/webbridge/v2.0.5/releases/kimi-webbridge-windows-amd64.exe",
+  "sha256": "2257775aa028a114d82d77d3d380e586f1fe002a0fb764f052152e416eb8a136",
+  "extensionPage": "https://www.kimi.com/products/kimi-webbridge"
+}

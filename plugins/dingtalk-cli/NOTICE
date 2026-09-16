@@ -1,0 +1,9 @@
+DingTalk Workspace CLI and bundled dingtalk-* skills
+Copyright 2026 Alibaba Group
+Source: https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli
+License: Apache License 2.0 (see LICENSE)
+
+FIBOO packaging changes, 2026-09-16:
+- Added plugin manifest, setup helper and onboarding skill.
+- Added portable executable-path guidance to the bundled skills.
+- No user credentials or organization login state are included.

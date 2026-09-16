@@ -1,0 +1,14 @@
+{
+  "name": "wave-image",
+  "version": "0.4.2",
+  "description": "Wave 图片生成与编辑：单张、批量、多图参考，以及已有响应图片保存。Windows x64 自带运行环境。",
+  "author": { "name": "FIBOO" },
+  "keywords": ["fiboo", "图片生成", "小红书", "mcp", "windows"],
+  "mcpServers": "./.mcp.json",
+  "userConfig": {
+    "api_key": {
+      "description": "输入公司为你分配的 Waveeee API Key。请勿在聊天、共享文件或仓库中发送密钥。",
+      "sensitive": true
+    }
+  }
+}

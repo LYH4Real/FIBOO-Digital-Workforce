@@ -1,0 +1,30 @@
+{
+  "marketplace": "FIBOO-数字员工市场",
+  "version": "1.0.0",
+  "plugins": {
+    "kimi-webbridge": {
+      "version": "2.0.5",
+      "sha256": "c7b301c22cb37b61d081e2ccfae6d93aa96486f08fc6e827188a409e7be6bdd0"
+    },
+    "dingtalk-cli": {
+      "version": "1.0.61",
+      "sha256": "6db1e8119fe126eaf3c68230e1cf3256b45c00619cb4e63bdb89cc5499df92af"
+    },
+    "wave-image": {
+      "version": "0.4.2",
+      "sha256": "357071c11d2b6ce7f4e3cbcc1dbf8cbc0843f444796e18b30fe879aa438fe7f6"
+    },
+    "fiboo-product-materials": {
+      "version": "0.1.0",
+      "sha256": "7bfb1b0572f70583d01a8ea6b003edd94c0deacac97c551866922f257635ca43"
+    },
+    "xiaohongshu-note-fetch": {
+      "version": "0.2.0",
+      "sha256": "3dc1e1869cc294d85fd139be311303922c8a78fa2031d4a6be338cc184154782"
+    },
+    "xiaohongshu-content-planner": {
+      "version": "0.3.2",
+      "sha256": "fa9f53c6160f7daa4344ff3860acd49a31cd4af769f4ffbbbdd02a7a4630e9de"
+    }
+  }
+}

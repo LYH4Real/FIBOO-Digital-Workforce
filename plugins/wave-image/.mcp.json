@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "wave-image": {
+      "command": "${CODEBUDDY_PLUGIN_ROOT}/runtime/waveeee-image-mcp.exe",
+      "args": [],
+      "env": {
+        "WAVEEEE_API_KEY": "${user_config.api_key}",
+        "WAVEEEE_OUTPUT_DIR": "~/Pictures/FIBOO/generated_images"
+      }
+    }
+  }
+}

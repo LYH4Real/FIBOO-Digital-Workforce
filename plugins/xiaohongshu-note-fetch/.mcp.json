@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "xhs-note-fetcher": {
+      "command": "${CODEBUDDY_PLUGIN_ROOT}/runtime/xhs-note-mcp.exe",
+      "args": [],
+      "env": { "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8" }
+    }
+  }
+}

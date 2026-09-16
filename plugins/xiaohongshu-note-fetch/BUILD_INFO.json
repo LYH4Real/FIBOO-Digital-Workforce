@@ -1,0 +1,14 @@
+{
+  "package": "xhs-note-fetcher",
+  "version": "0.2.0",
+  "platform": "windows-x64",
+  "python": "3.14.7",
+  "mcp": "1.30.0",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+  "pyinstaller": "6.22.3",
+  "frozen_protocol_self_test": "passed",
+  "source_wheel_sha256": "cd086beebe3c340675ddb61e5a37a43b9b49e4d6db0a948903703ff440909f18",
+  "upstream_configuration": "Generated locally by install.cmd; no client configuration included.",
+  "configuration": "Plugin-relative .mcp.json; no machine-specific client configuration included.",
+  "upstream_archive_sha256": "3d722908d7e43a1eff8c17493ece0891490156c19784c6bdc7cbabb5671ee4a6"
+}

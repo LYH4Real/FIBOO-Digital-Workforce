@@ -1,0 +1,7 @@
+This package contains Python and third-party libraries. Their original
+license notices are in licenses/. DEPENDENCIES.json records versions
+and notice locations for runtime dependencies and build tools.
+OpenSSL notices are in licenses/OPENSSL-LICENSE.txt; the version is
+recorded in BUILD_INFO.json.
+Kimi Browser Extension, browsers and WorkBuddy are separate products
+and are not included in this archive.

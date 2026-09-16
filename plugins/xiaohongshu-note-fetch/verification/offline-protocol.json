@@ -1,0 +1,25 @@
+{
+  "plugin": "xiaohongshu-note-fetch",
+  "version": "0.2.0",
+  "platform": "windows-x64",
+  "passed": true,
+  "tests": {
+    "initialize": "passed",
+    "tools": [
+      "xhs_discover_notes",
+      "xhs_fetch_note",
+      "xhs_fetch_notes",
+      "xhs_status"
+    ],
+    "relocated_path_with_chinese_spaces_ampersand": true,
+    "path_contains_only_windows_system32": true,
+    "chinese_invalid_url_error": "passed",
+    "browser_contacted": false
+  },
+  "network_image_generation": false,
+  "real_note_fetching": false,
+  "limits": [
+    "Does not prove WorkBuddy UI installation or key-entry behavior.",
+    "Does not prove paid image generation or authenticated browser fetching."
+  ]
+}

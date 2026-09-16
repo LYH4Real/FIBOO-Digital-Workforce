@@ -1,0 +1,9 @@
+{
+  "plugin": "xiaohongshu-note-fetch",
+  "runtime_lock_matches": true,
+  "runtime_file_count": 128,
+  "prohibited_state_files_found": 0,
+  "literal_sk_key_markers_found": 0,
+  "checked_wheel_contents": true,
+  "credential_scan_limit": "Checks prohibited names and recognizable key literals; not a general proof against every secret format."
+}

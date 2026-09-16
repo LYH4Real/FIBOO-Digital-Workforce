@@ -1,0 +1,4 @@
+{
+  "pythonHelper": "scripts/run-python.ps1",
+  "minPython": "3.10"
+}

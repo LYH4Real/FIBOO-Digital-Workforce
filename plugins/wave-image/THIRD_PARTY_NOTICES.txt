@@ -1,0 +1,6 @@
+This internal FIBOO plugin contains the existing Waveeee Image MCP source and
+a Windows x64 executable frozen with PyInstaller. It uses the Python standard
+library. Python, OpenSSL, Expat, and PyInstaller license notices are in licenses/.
+The PyInstaller bootloader license includes an exception for frozen applications.
+Waveeee is an external service; this package does not include an API credential.
+No new license grant is asserted for the original company application code.

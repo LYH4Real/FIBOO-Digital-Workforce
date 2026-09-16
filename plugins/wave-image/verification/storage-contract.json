@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "credential_present": false,
+  "network_requests": false,
+  "generation_tools_called": false,
+  "fixture": "synthetic 1x1 PNG encoded as base64",
+  "requested_filename": "contract.jpg",
+  "saved_filenames": [
+    "contract.png",
+    "contract-2.png"
+  ],
+  "same_bytes_preserved": true,
+  "existing_file_not_overwritten": true,
+  "tools_schema_sha256": "6efc8d70949f2ebf8facc45ffd4fb62ab2798912ad3d98db11ac8dc0bb6fec1c"
+}

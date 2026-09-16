@@ -1,0 +1,21 @@
+{
+  "name": "fiboo-product-materials",
+  "version": "0.1.0",
+  "description": "从公司钉钉产品资料库实时获取 FIBOO 产品信息、来源证据、PDF 与产品图片。",
+  "author": {
+    "name": "FIBOO"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "fiboo",
+    "product",
+    "dingtalk",
+    "materials"
+  ],
+  "skills": [
+    "./skills/fiboo-product-materials"
+  ],
+  "dependencies": [
+    "dingtalk-cli"
+  ]
+}

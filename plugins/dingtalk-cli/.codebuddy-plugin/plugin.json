@@ -1,0 +1,8 @@
+{
+  "name": "dingtalk-cli",
+  "version": "1.0.61",
+  "description": "钉钉办公 CLI 与配套技能。内置 Windows x64 DWS 1.0.61；首次使用由员工完成自己的钉钉授权。",
+  "author": { "name": "FIBOO" },
+  "license": "Apache-2.0",
+  "skills": "./skills/"
+}

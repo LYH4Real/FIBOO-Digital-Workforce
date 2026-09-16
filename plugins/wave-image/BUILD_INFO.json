@@ -1,0 +1,10 @@
+{
+  "package": "waveeee-image-mcp",
+  "version": "0.4.2",
+  "platform": "windows-x64",
+  "python": "3.14.7",
+  "application_dependencies": "Python standard library",
+  "packaging": "Existing Windows single-file PyInstaller distribution; runtime copied without changes.",
+  "executable_sha256": "f33ec47296448ac334ea877d7edfaff223496f87a1ef547e202fe8fc89832c89",
+  "configuration": "Plugin userConfig provides API key; output is user Pictures/FIBOO/generated_images."
+}

@@ -1,0 +1,22 @@
+{
+  "planner_plugin_version": "0.3.2",
+  "wave_runtime_version": "0.4.2",
+  "passed": true,
+  "runtime_schema_test_cases": 2,
+  "tool_format_combinations": 16,
+  "planner_regression_tests": 142,
+  "response_formats": [
+    "auto",
+    "url",
+    "b64_json"
+  ],
+  "omitted_format_preserved": true,
+  "exact_arguments_preserved": true,
+  "credential_present": false,
+  "network_requests": false,
+  "image_generation_tools_called": false,
+  "notes": [
+    "Four tool schemas were obtained from bundled waveeee-image-mcp.exe through tools/list.",
+    "Preflight exercised full existing synthetic facts/approval fixtures; this is not authorization for real generation."
+  ]
+}

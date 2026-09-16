@@ -1,0 +1,16 @@
+.verification/
+dist/
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+*.bak
+credentials*
+!plugins/dingtalk-cli/skills/dingtalk-misc/references/dev/credentials.md
+tokens.json
+auth.json
+local-config.json

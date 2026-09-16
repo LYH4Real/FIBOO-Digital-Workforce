@@ -1,0 +1,25 @@
+{
+  "name": "xiaohongshu-content-planner",
+  "version": "0.3.2",
+  "description": "FIBOO 小红书内容策划：接入实时产品资料、拆解参考图文、交付策划 HTML，并按确认方案调用 Wave Image。",
+  "author": {
+    "name": "FIBOO"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "fiboo",
+    "xiaohongshu",
+    "content",
+    "planning"
+  ],
+  "skills": [
+    "./skills/xiaohongshu-content-planner"
+  ],
+  "dependencies": [
+    "kimi-webbridge",
+    "dingtalk-cli",
+    "wave-image",
+    "fiboo-product-materials",
+    "xiaohongshu-note-fetch"
+  ]
+}
