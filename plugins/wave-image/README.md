@@ -1,6 +1,6 @@
 # Wave 图片生成与编辑
 
-在「FIBOO-数字员工市场」安装并启用 `wave-image`，按客户端提示输入公司为你分配的 Waveeee API Key。Windows 10/11 x64 自带运行环境，无需安装 Python。
+在「fiboo-digital-employee-marketplace」安装并启用 `wave-image`，按客户端提示输入公司为你分配的 Waveeee API Key。Windows 10/11 x64 自带运行环境，无需安装 Python。
 
 第一次使用可说：**请调用 Wave 的 server_info，确认版本为 0.4.2，且 api_key_configured 为 true。** 此检查不产生生图请求。之后即可按需生成、编辑图片；生成和编辑会调用 Waveeee 服务，使用所配置账号的额度。
 

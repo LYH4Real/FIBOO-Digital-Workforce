@@ -1,6 +1,6 @@
 {
   "name": "wave-image",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Wave 图片生成与编辑：单张、批量、多图参考，以及已有响应图片保存。Windows x64 自带运行环境。",
   "author": {
     "name": "FIBOO"

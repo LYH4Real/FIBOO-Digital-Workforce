@@ -1,6 +1,6 @@
 {
-  "marketplace": "FIBOO-数字员工市场",
-  "version": "1.0.1",
+  "marketplace": "fiboo-digital-employee-marketplace",
+  "version": "1.0.2",
   "plugins": {
     "kimi-webbridge": {
       "version": "2.0.5",
@@ -11,16 +11,16 @@
       "sha256": "6db1e8119fe126eaf3c68230e1cf3256b45c00619cb4e63bdb89cc5499df92af"
     },
     "wave-image": {
-      "version": "0.4.3",
-      "sha256": "24e1444bed92bfe6e944893f10ab9086fef8e84f6cf9e7a9a0162009f7a78a0e"
+      "version": "0.4.4",
+      "sha256": "9a6ce8b19154f31e2873e84160334608f81bfbd4fcfbed4e24c1c690399d116d"
     },
     "fiboo-product-materials": {
-      "version": "0.1.0",
-      "sha256": "7bfb1b0572f70583d01a8ea6b003edd94c0deacac97c551866922f257635ca43"
+      "version": "0.1.1",
+      "sha256": "607d89e683f57efe81bceb5d30206c42d65d55e2cfb37005439477cc6a5086b4"
     },
     "xiaohongshu-note-fetch": {
-      "version": "0.2.0",
-      "sha256": "3dc1e1869cc294d85fd139be311303922c8a78fa2031d4a6be338cc184154782"
+      "version": "0.2.1",
+      "sha256": "eea4a4a85f1cb12116adfc21272603c3cb7a766f26dea9a7b28aac4e54da255c"
     },
     "xiaohongshu-content-planner": {
       "version": "0.3.2",

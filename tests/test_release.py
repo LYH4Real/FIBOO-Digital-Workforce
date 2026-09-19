@@ -16,7 +16,7 @@ class ReleaseTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='fiboo-release-')
         self.root = Path(self.temp.name).resolve()
-        release.write_json(self.root / release.CATALOG, {'name': 'FIBOO-数字员工市场', 'version': '1.0.0', 'plugins': []})
+        release.write_json(self.root / release.CATALOG, {'name': 'fiboo-digital-employee-marketplace', 'version': '1.0.0', 'plugins': []})
         release.new_plugin(self.root, 'example', 'Example skill')
 
     def tearDown(self):

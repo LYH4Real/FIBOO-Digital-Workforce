@@ -180,8 +180,8 @@ def validate_runtime(plugin: Path, name: str):
 def validate(root: Path = ROOT) -> dict:
     root = root.resolve()
     catalog = read_json(root / CATALOG)
-    if catalog.get('name') != 'FIBOO-数字员工市场':
-        raise ValueError('The marketplace display name must be FIBOO-数字员工市场.')
+    if catalog.get('name') != 'fiboo-digital-employee-marketplace':
+        raise ValueError('The marketplace name must be fiboo-digital-employee-marketplace.')
     if not SEMVER.fullmatch(catalog.get('version', '')):
         raise ValueError('Invalid marketplace version.')
     records, dependencies = {}, {}

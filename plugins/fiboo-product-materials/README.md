@@ -4,7 +4,7 @@
 
 ## 安装与首次使用
 
-1. 从“FIBOO-数字员工市场”安装本插件；其依赖 `dingtalk-cli` 由市场依赖声明一并安装。
+1. 从“fiboo-digital-employee-marketplace”安装本插件；其依赖 `dingtalk-cli` 由市场依赖声明一并安装。
 2. 按 `dingtalk-cli` 的初始化说明准备 DWS，使用员工本人的钉钉身份登录，并确认有公司产品资料库读取权限。
 3. 准备 Python 3.10 或更新版本。PDF 正文提取另需 `skills/fiboo-product-materials/requirements-pdf.txt` 声明的 `pypdf`；可装入任务专用虚拟环境。
 4. 在 WorkBuddy 中提出“查找 fiboo 某产品的资料与主图”。只做资料检索时，无需生图服务。

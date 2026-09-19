@@ -6,7 +6,7 @@
 
 | 能力 | 实际结果 |
 | --- | --- |
-| 中文展示名 | 市场 manifest 的 `name` 为 `FIBOO-数字员工市场`，原生 HTTP 返回和桌面渲染代码均保留此名称 |
+| 市场展示名 | manifest 使用 ASCII 稳定标识 `fiboo-digital-employee-marketplace`；WorkBuddy 会拒绝第三方市场的中文 manifest 名称 |
 | 稳定安装标识 | 注册别名使用 `fiboo-digital-employee-marketplace`；安装目标为 `插件名@别名` |
 | 原生依赖安装 | 只安装 mock planner，原生自动安装声明的依赖并把依赖记录为 `auto: true` |
 | 自动更新开关 | 通过原生 API 写入 `autoUpdate: true`，读取原生状态复核通过 |
@@ -18,13 +18,13 @@
 
 原始隔离证据位于 `.verification/native-probe/`：`results.jsonl`、`serve-results.json`、`integration-results.json`、`chinese-id-results.json`。六包验收位于 `.verification/full-native/final-pass/native-result.json`。这些本机探针不属于需要发布的插件内容。
 
-## 中文名称与存储别名必须区分
+## 展示名称与存储别名必须区分
 
 市场文件 `.codebuddy-plugin/marketplace.json`：
 
 ```json
 {
-  "name": "FIBOO-数字员工市场",
+  "name": "fiboo-digital-employee-marketplace",
   "owner": {"name": "FIBOO"},
   "plugins": [
     {"name": "example-plugin", "source": "./plugins/example-plugin"}
@@ -32,9 +32,9 @@
 }
 ```
 
-添加时通过 `name` 参数指定英文存储别名。返回值使用英文 `id` 与中文 `name`。桌面 `mapCliMarketplace` 保留这两个字段，分类标签读取 `marketplace.name`。不需要未获原生支持的 `displayName` 扩展。
+添加时通过 `name` 参数指定英文存储别名。返回值使用英文 `id` 与 manifest 的 `name`。桌面 `mapCliMarketplace` 保留这两个字段，分类标签读取 `marketplace.name`。不需要未获原生支持的 `displayName` 扩展。
 
-**不能直接把注册别名也设为中文。** 独立探针收到原生拒绝：`Marketplace name "FIBOO-数字员工市场" is not allowed: it resembles an official marketplace name. Please choose a different name.` 这项限制属于注册参数校验，不代表 manifest 的展示名称被拒绝。
+**第三方市场 manifest 名称必须使用 ASCII。** WorkBuddy 5.5.6 的 `isBlockedOfficialName` 会拒绝含非 ASCII 字符的第三方市场名，并拒绝仿官方名称。GUI 仅提交市场源时会回退使用 manifest 的 `name`，因此 `FIBOO-数字员工市场` 会被拒绝。`fiboo-digital-employee-marketplace` 已用隔离原生注册和浏览验证；中文品牌说明保留在 description、README 和员工文档中。该名称同时是稳定的注册别名，不能改动它，否则已安装插件的 `插件名@别名` 标识会变化。
 
 ## 原生管理器命令
 

@@ -1,10 +1,10 @@
 {
-  "name": "FIBOO-数字员工市场",
+  "name": "fiboo-digital-employee-marketplace",
   "owner": {
     "name": "FIBOO"
   },
   "description": "FIBOO 公司内部数字员工能力市场：浏览器、钉钉、产品资料、小红书采集、内容策划与图片生成。",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "plugins": [
     {
       "name": "kimi-webbridge",

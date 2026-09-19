@@ -1,9 +1,19 @@
 {
   "name": "xiaohongshu-note-fetch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "小红书笔记详情 MCP：通过本人已连接的 Kimi 浏览器读取标题、正文、作者、互动数和图集地址。Windows x64 自带运行环境。",
-  "author": { "name": "FIBOO" },
-  "keywords": ["fiboo", "小红书", "笔记", "mcp", "windows"],
-  "dependencies": ["kimi-webbridge"],
+  "author": {
+    "name": "FIBOO"
+  },
+  "keywords": [
+    "fiboo",
+    "小红书",
+    "笔记",
+    "mcp",
+    "windows"
+  ],
+  "dependencies": [
+    "kimi-webbridge"
+  ],
   "mcpServers": "./.mcp.json"
 }

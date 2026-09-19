@@ -2,7 +2,7 @@
 
 2026-09-16，在 Windows x64、WorkBuddy 随包 CLI **2.137.1** 上完成。使用项目 `.verification/full-native/final-pass` 全新隔离配置；未向当前员工的 WorkBuddy 配置注册市场或安装插件。
 
-市场显示名称为 **FIBOO-数字员工市场**，内部 ID 为 `fiboo-digital-employee-marketplace`。本次来源为本地市场目录，验收安装与加载能力；真实 HTTPS Git 发布、安装及原生自动升级另行验收，只读定时检测结果见 [自动更新检查](update-monitor.md)。
+当前市场显示名称和内部 ID 均为 **fiboo-digital-employee-marketplace**。原 v1.0.1 验收使用的中文名在最新 WorkBuddy 添加市场界面中被判为保留名称；v1.0.2 改用兼容的 ASCII 稳定标识。本次来源为本地市场目录，验收安装与加载能力；真实 HTTPS Git 发布、安装及原生自动升级另行验收，只读定时检测结果见 [自动更新检查](update-monitor.md)。
 
 仅发出一次安装请求：`xiaohongshu-content-planner`。原生安装器自动安装其余五个依赖，`plugin list --json`、原生市场 browse 与已安装接口均返回六个插件。
 

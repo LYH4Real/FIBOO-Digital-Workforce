@@ -1,6 +1,6 @@
-# FIBOO-数字员工市场
+# FIBOO 数字员工插件市场
 
-供公司员工使用的 WorkBuddy 插件市场。按维护者当前选择，发行仓库暂时公开：[LYH4Real/FIBOO-Digital-Workforce](https://github.com/LYH4Real/FIBOO-Digital-Workforce)。员工首次接入市场，随后在 WorkBuddy 中按需安装插件。
+FIBOO 数字员工插件市场，供公司员工通过 WorkBuddy 按需安装能力。WorkBuddy 对第三方市场名称要求 ASCII，且把该名称作为安装标识，因此界面中显示为 **fiboo-digital-employee-marketplace**；中文品牌保留在市场说明与本文档中。按维护者当前选择，发行仓库暂时公开：[LYH4Real/FIBOO-Digital-Workforce](https://github.com/LYH4Real/FIBOO-Digital-Workforce)。
 
 目标环境：Windows 10/11 x64 + WorkBuddy。已核对的宿主为 WorkBuddy 5.5.6 / 随包 CLI 2.137.1。首次连接钉钉、浏览器及图片服务需要员工自己的授权。
 
@@ -19,12 +19,12 @@
 
 1. 从 [最新发布页](https://github.com/LYH4Real/FIBOO-Digital-Workforce/releases/latest) 下载 `fiboo-marketplace-*.zip` 安装包；当前公开仓库无需员工 GitHub 授权。未来改为私有时再为员工配置仓库读取权限。
 2. 解压到本地，双击 **安装市场.cmd**。公司仓库地址已经预填。此操作只注册公司市场并开启更新检测，不会一次安装全部插件。
-3. 打开或重新打开 WorkBuddy，在技能页的插件区域找到 **FIBOO-数字员工市场**，按需安装。安装“小红书内容策划”会自动安装它的五项依赖。
+3. 打开或重新打开 WorkBuddy，在技能页的插件区域找到 **fiboo-digital-employee-marketplace**，按需安装。安装“小红书内容策划”会自动安装它的五项依赖。
 4. 告诉 WorkBuddy：“检查我安装的 FIBOO 插件，完成首次配置”。按照[员工使用指南](docs/员工使用指南.md)完成自己的浏览器、钉钉和 Wave 配置。
 
 也可以在 WorkBuddy 的“添加市场”入口直接添加公司 Git 地址，但必须另行开启该市场的自动更新。推荐使用本包安装入口，让这个设置一起完成。
 
-市场显示名为 `FIBOO-数字员工市场`，安装器使用稳定存储标识 `fiboo-digital-employee-marketplace`。员工不要自行更改市场名。
+市场在 WorkBuddy 中显示为 `fiboo-digital-employee-marketplace`，这也是稳定的存储标识。员工不要自行更改它。
 
 ## 更新行为
 
@@ -46,7 +46,7 @@
 ```powershell
 python scripts/release.py validate
 python -m unittest discover -s tests -v
-python scripts/release.py build --output dist/fiboo-marketplace-1.0.0.zip
+python scripts/release.py build --output dist/fiboo-marketplace-1.0.2.zip
 ```
 
 维护脚本也可由 WorkBuddy 自带 Python 执行：`powershell -File scripts/run-python.ps1 scripts/release.py validate`。

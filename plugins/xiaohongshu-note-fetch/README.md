@@ -1,6 +1,6 @@
 # 小红书笔记详情
 
-在「FIBOO-数字员工市场」安装 `xiaohongshu-note-fetch`。本插件声明依赖市场中的 `kimi-webbridge`；支持依赖安装的客户端会一并安装。Windows 10/11 x64 自带 MCP 运行环境，无需 Python。浏览器扩展和本地桥接服务仍需按 Kimi 插件的首次使用指引安装、连接。
+在「fiboo-digital-employee-marketplace」安装 `xiaohongshu-note-fetch`。本插件声明依赖市场中的 `kimi-webbridge`；支持依赖安装的客户端会一并安装。Windows 10/11 x64 自带 MCP 运行环境，无需 Python。浏览器扩展和本地桥接服务仍需按 Kimi 插件的首次使用指引安装、连接。
 
 1. 按 `kimi-webbridge` 插件指引准备 Chrome/Edge、Kimi 扩展和本地桥接服务。
 2. 在这个浏览器登录**自己的小红书账号**，保持浏览器打开。

@@ -24,7 +24,7 @@ import urllib.parse
 import urllib.request
 
 MARKET_ID = "fiboo-digital-employee-marketplace"
-DISPLAY_NAME = "FIBOO-数字员工市场"
+DISPLAY_NAME = "fiboo-digital-employee-marketplace"
 METADATA_DIRS = (".codebuddy-plugin", ".workbuddy-plugin", ".claude-plugin")
 CREATE_NO_WINDOW = 0x08000000 if os.name == "nt" else 0
 
